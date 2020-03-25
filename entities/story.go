@@ -6,4 +6,5 @@ type Story struct {
 	Synopsis   string
 	Paragraphs []Paragraph
 	Admins     []Writer
+	Authors    []Writer
 }
