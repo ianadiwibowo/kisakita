@@ -1,7 +1,7 @@
-.PHONY: build test cov covline run
+.PHONY: build test cov covline run clean
 
 build:
-	go build -o bin/kisakita-api app/api/main.go
+	go build -o bin/kisakita_api app/api.go
 
 test:
 	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "app|entities")
@@ -13,4 +13,7 @@ covline:
 	go tool cover -html=coverage.out
 
 run:
-	go run app/api/main.go
+	go run app/api.go
+
+clean:
+	rm -rf bin

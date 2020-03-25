@@ -52,3 +52,13 @@ make build
 ```bash
 bundle exec rails db:migrate
 ```
+
+## 2. Contributing
+
+### 2.x Using Mockery
+
+```bash
+cd domains/story
+mockery -name=StoryRepositories
+# => Generating mock for: StoryRepositories in file: mocks/StoryRepositories.go
+```
