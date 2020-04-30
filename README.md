@@ -56,7 +56,7 @@ bundle exec rails db:migrate
 ### 2.x Using Mockery
 
 ```bash
-cd domains/story
-mockery -name=StoryRepositories
-# => Generating mock for: StoryRepositories in file: mocks/StoryRepositories.go
+cd domain/storywriting
+mockery -name=StoryRepository
+# => Generating mock for: StoryRepository in file: mocks/StoryRepository.go
 ```
