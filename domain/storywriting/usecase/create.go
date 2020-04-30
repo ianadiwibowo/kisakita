@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/storywriting"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domain/storywriting"
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
