@@ -1,4 +1,4 @@
-package usecases_test
+package usecase_test
 
 import (
 	"errors"
@@ -6,19 +6,19 @@ import (
 
 	"github.com/stretchr/testify/suite"
 	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/mocks"
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/usecases"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/usecase"
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
 type StoryUsecasesTestSuite struct {
 	suite.Suite
 	repo    *mocks.StoryRepositories
-	usecase *usecases.StoryUsecase
+	usecase *usecase.StoryUsecase
 }
 
 func (s *StoryUsecasesTestSuite) SetupTest() {
 	s.repo = new(mocks.StoryRepositories)
-	s.usecase = usecases.NewStoryUsecase(s.repo)
+	s.usecase = usecase.NewStoryUsecase(s.repo)
 }
 
 func TestStoryUsecases(t *testing.T) {

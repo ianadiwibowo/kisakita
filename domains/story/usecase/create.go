@@ -1,4 +1,4 @@
-package usecases
+package usecase
 
 import (
 	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story"
