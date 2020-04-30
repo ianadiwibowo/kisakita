@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-// StoriesHandler ...
+// StoriesHandler is the controller for stories scope
 type StoriesHandler struct {
 }
 
