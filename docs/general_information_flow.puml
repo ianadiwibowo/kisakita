@@ -1,0 +1,41 @@
+@startuml
+
+title Kisakita Stories - General Information Flow
+
+autonumber
+
+actor client as c
+boundary "app/api" as a
+control "delivery/handler" as h
+control "delivery/serializer" as s
+control "usecase" as u
+database "repository" as r
+
+c -> a: Call API endpoint
+a -> h: Route and forward\nrequest payload
+h -> h: Validate request payload
+
+alt If request payload validation failed
+h -> s: Request to serialize error\nresponse
+s --> h: Render error response
+h --> c: Send error response
+end
+
+h -> u: Process according to business\nrules
+u -> u: Call other usecases as\nnecessary
+u -> r: Communicate with\nrepositories as necessary
+r --> u: Respond
+
+alt If error happened during usecase processing
+u -> h: Raise exception
+h -> s: Request to serialize error\nresponse
+s --> h: Render error response
+h --> c: Send error response
+end
+
+u -> h: Send success response
+h -> s: Request to serialize success\nresponse
+s --> h: Render success response
+h --> c: Send success response
+
+@enduml
