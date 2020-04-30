@@ -50,24 +50,24 @@ func (app *App) SetupRouter() {
 		os.Getenv("BASIC_PASSWORD"),
 	))
 
-	storiesHandler := handler.NewStoriesHandler()
+	storywritingHandler := handler.NewStoriesHandler()
 
 	app.Router.Methods("GET").Path("/stories/{id}").HandlerFunc(
-		storiesHandler.GetByID,
+		storywritingHandler.GetByID,
 	)
 	app.Router.Methods("POST").Path("/stories").HandlerFunc(
-		storiesHandler.Create,
+		storywritingHandler.Create,
 	)
 	app.Router.Methods("PATCH").Path("/stories/{id}").HandlerFunc(
-		storiesHandler.Update,
+		storywritingHandler.Update,
 	)
 	app.Router.Methods("DELETE").Path("/stories/{id}").HandlerFunc(
-		storiesHandler.Delete,
+		storywritingHandler.Delete,
 	)
 	app.Router.Methods("GET").Path("/stories/by-authors/{id}").HandlerFunc(
-		storiesHandler.GetByAuthorID,
+		storywritingHandler.GetByAuthorID,
 	)
 	app.Router.Methods("GET").Path("/stories/ten-latests").HandlerFunc(
-		storiesHandler.Get10LatestStories,
+		storywritingHandler.Get10LatestStories,
 	)
 }

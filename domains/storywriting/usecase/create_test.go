@@ -10,22 +10,22 @@ import (
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
-type StoryUsecasesTestSuite struct {
+type StoryUsecaseTestSuite struct {
 	suite.Suite
-	repo    *mocks.StoryRepositories
+	repo    *mocks.StoryRepository
 	usecase *usecase.StoryUsecase
 }
 
-func (s *StoryUsecasesTestSuite) SetupTest() {
-	s.repo = new(mocks.StoryRepositories)
+func (s *StoryUsecaseTestSuite) SetupTest() {
+	s.repo = new(mocks.StoryRepository)
 	s.usecase = usecase.NewStoryUsecase(s.repo)
 }
 
-func TestStoryUsecases(t *testing.T) {
-	suite.Run(t, new(StoryUsecasesTestSuite))
+func TestStoryUsecase(t *testing.T) {
+	suite.Run(t, new(StoryUsecaseTestSuite))
 }
 
-func (s *StoryUsecasesTestSuite) TestCreate() {
+func (s *StoryUsecaseTestSuite) TestCreate() {
 	newStory := &entity.Story{}
 	s.repo.On("Create", newStory).Return(nil)
 
@@ -35,7 +35,7 @@ func (s *StoryUsecasesTestSuite) TestCreate() {
 	s.repo.AssertCalled(s.T(), "Create", newStory)
 }
 
-func (s *StoryUsecasesTestSuite) TestCreate_ButErrorHappened() {
+func (s *StoryUsecaseTestSuite) TestCreate_ButErrorHappened() {
 	newStory := &entity.Story{}
 	s.repo.On("Create", newStory).Return(errors.New("Some error"))
 
@@ -45,7 +45,7 @@ func (s *StoryUsecasesTestSuite) TestCreate_ButErrorHappened() {
 	s.repo.AssertCalled(s.T(), "Create", newStory)
 }
 
-func (s *StoryUsecasesTestSuite) TestUpdate() {
+func (s *StoryUsecaseTestSuite) TestUpdate() {
 	newStory := &entity.Story{}
 	s.repo.On("Update", newStory).Return(nil)
 
@@ -55,7 +55,7 @@ func (s *StoryUsecasesTestSuite) TestUpdate() {
 	s.repo.AssertCalled(s.T(), "Update", newStory)
 }
 
-func (s *StoryUsecasesTestSuite) TestUpdate_ButErrorHappened() {
+func (s *StoryUsecaseTestSuite) TestUpdate_ButErrorHappened() {
 	newStory := &entity.Story{}
 	s.repo.On("Update", newStory).Return(errors.New("Some error"))
 

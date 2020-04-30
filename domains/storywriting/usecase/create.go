@@ -1,16 +1,16 @@
 package usecase
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/storywriting"
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
 type StoryUsecase struct {
-	repo story.StoryRepositories
+	repo storywriting.StoryRepository
 }
 
 // NewStoryUsecase initializes a new StoryUsecase instance
-func NewStoryUsecase(repo story.StoryRepositories) *StoryUsecase {
+func NewStoryUsecase(repo storywriting.StoryRepository) *StoryUsecase {
 	return &StoryUsecase{
 		repo: repo,
 	}
