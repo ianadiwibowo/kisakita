@@ -1,4 +1,4 @@
-module github.com/ianadiwibowo/kisakita
+module gitlab.com/ianadiwibowo/kisakita-stories
 
 go 1.14
 
