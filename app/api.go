@@ -22,7 +22,7 @@ func main() {
 	app := NewApp()
 	app.SetupRouter()
 
-	http.ListenAndServe(":8080", app.Router)
+	_ = http.ListenAndServe(":8080", app.Router)
 }
 
 // Load system configurations, get them via: os.Getenv("{ENV_KEY_NAME}")
