@@ -1,4 +1,4 @@
-package entities
+package entity
 
 // Story is a collection of paragraphs
 type Story struct {

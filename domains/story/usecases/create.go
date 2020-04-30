@@ -2,7 +2,7 @@ package usecases
 
 import (
 	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story"
-	"gitlab.com/ianadiwibowo/kisakita-stories/entities"
+	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
 type StoryUsecase struct {
@@ -17,7 +17,7 @@ func NewStoryUsecase(repo story.StoryRepositories) *StoryUsecase {
 }
 
 // Create saves the newStory
-func (u *StoryUsecase) Create(newStory *entities.Story) error {
+func (u *StoryUsecase) Create(newStory *entity.Story) error {
 	err := u.repo.Create(newStory)
 	if err != nil {
 		return err
@@ -27,7 +27,7 @@ func (u *StoryUsecase) Create(newStory *entities.Story) error {
 }
 
 // Update edits the existingStory
-func (u *StoryUsecase) Update(existingStory *entities.Story) error {
+func (u *StoryUsecase) Update(existingStory *entity.Story) error {
 	err := u.repo.Update(existingStory)
 	if err != nil {
 		return err
@@ -37,16 +37,16 @@ func (u *StoryUsecase) Update(existingStory *entities.Story) error {
 }
 
 // Delete removes the existingStory
-func (u *StoryUsecase) Delete(existingStory *entities.Story) error {
+func (u *StoryUsecase) Delete(existingStory *entity.Story) error {
 	return nil
 }
 
 // GetByAuthorID retrieves all stories that the writerID involved
-func (u *StoryUsecase) GetByAuthorID(writerID int) (stories []*entities.Story, err error) {
+func (u *StoryUsecase) GetByAuthorID(writerID int) (stories []*entity.Story, err error) {
 	return nil, nil
 }
 
 // Get10LatestStories retrieve 10 newest stories ordered by latest update
-func Get10LatestStories() (stories []*entities.Story, err error) {
+func Get10LatestStories() (stories []*entity.Story, err error) {
 	return nil, nil
 }

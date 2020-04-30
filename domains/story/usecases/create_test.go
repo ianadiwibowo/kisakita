@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/suite"
 	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/mocks"
 	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/usecases"
-	"gitlab.com/ianadiwibowo/kisakita-stories/entities"
+	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
 type StoryUsecasesTestSuite struct {
@@ -26,7 +26,7 @@ func TestStoryUsecases(t *testing.T) {
 }
 
 func (s *StoryUsecasesTestSuite) TestCreate() {
-	newStory := &entities.Story{}
+	newStory := &entity.Story{}
 	s.repo.On("Create", newStory).Return(nil)
 
 	err := s.usecase.Create(newStory)
@@ -36,7 +36,7 @@ func (s *StoryUsecasesTestSuite) TestCreate() {
 }
 
 func (s *StoryUsecasesTestSuite) TestCreate_ButErrorHappened() {
-	newStory := &entities.Story{}
+	newStory := &entity.Story{}
 	s.repo.On("Create", newStory).Return(errors.New("Some error"))
 
 	err := s.usecase.Create(newStory)
@@ -46,7 +46,7 @@ func (s *StoryUsecasesTestSuite) TestCreate_ButErrorHappened() {
 }
 
 func (s *StoryUsecasesTestSuite) TestUpdate() {
-	newStory := &entities.Story{}
+	newStory := &entity.Story{}
 	s.repo.On("Update", newStory).Return(nil)
 
 	err := s.usecase.Update(newStory)
@@ -56,7 +56,7 @@ func (s *StoryUsecasesTestSuite) TestUpdate() {
 }
 
 func (s *StoryUsecasesTestSuite) TestUpdate_ButErrorHappened() {
-	newStory := &entities.Story{}
+	newStory := &entity.Story{}
 	s.repo.On("Update", newStory).Return(errors.New("Some error"))
 
 	err := s.usecase.Update(newStory)

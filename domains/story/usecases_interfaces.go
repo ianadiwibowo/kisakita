@@ -1,13 +1,13 @@
 package story
 
-import "gitlab.com/ianadiwibowo/kisakita-stories/entities"
+import "gitlab.com/ianadiwibowo/kisakita-stories/entity"
 
 type StoryUsecases interface {
-	GetByID(storyID int) (story *entities.Story, err error)
-	Create(newStory *entities.Story) (err error)
-	Update(existingStory *entities.Story) (err error)
-	Delete(existingStory *entities.Story) (err error)
+	GetByID(storyID int) (story *entity.Story, err error)
+	Create(newStory *entity.Story) (err error)
+	Update(existingStory *entity.Story) (err error)
+	Delete(existingStory *entity.Story) (err error)
 
-	GetByAuthorID(writerID int) (stories []*entities.Story, err error)
-	Get10LatestStories() (stories []*entities.Story, err error)
+	GetByAuthorID(writerID int) (stories []*entity.Story, err error)
+	Get10LatestStories() (stories []*entity.Story, err error)
 }
