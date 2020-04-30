@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/subosito/gotenv"
 
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/deliveries/handler"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/delivery/handler"
 )
 
 // App is the collection of required dependencies
