@@ -1,6 +1,6 @@
 package story
 
-import "github.com/ianadiwibowo/kisakita/entities"
+import "gitlab.com/ianadiwibowo/kisakita-stories/entities"
 
 type StoryUsecases interface {
 	GetByID(storyID int) (story *entities.Story, err error)

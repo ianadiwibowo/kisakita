@@ -1,8 +1,8 @@
 package usecases
 
 import (
-	"github.com/ianadiwibowo/kisakita/domains/story"
-	"github.com/ianadiwibowo/kisakita/entities"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story"
+	"gitlab.com/ianadiwibowo/kisakita-stories/entities"
 )
 
 type StoryUsecase struct {

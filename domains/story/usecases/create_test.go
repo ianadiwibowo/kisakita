@@ -4,10 +4,10 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/ianadiwibowo/kisakita/domains/story/mocks"
-	"github.com/ianadiwibowo/kisakita/domains/story/usecases"
-	"github.com/ianadiwibowo/kisakita/entities"
 	"github.com/stretchr/testify/suite"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/mocks"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/usecases"
+	"gitlab.com/ianadiwibowo/kisakita-stories/entities"
 )
 
 type StoryUsecasesTestSuite struct {
