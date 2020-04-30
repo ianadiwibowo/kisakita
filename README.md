@@ -9,8 +9,6 @@ Kisakita is an (hypotethical) app for story writing collaboration. You write sto
 * SOLID principle
 * Gang of Four design patterns
 
-Actually, this is my playground for sharpening my Go.
-
 > "Kisakita" is a wordplay in Bahasa Indonesia, roughly translated to "our story".
 
 ## 1. Setup
