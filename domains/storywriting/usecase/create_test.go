@@ -5,8 +5,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/suite"
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/mocks"
-	"gitlab.com/ianadiwibowo/kisakita-stories/domains/story/usecase"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/storywriting/mocks"
+	"gitlab.com/ianadiwibowo/kisakita-stories/domains/storywriting/usecase"
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
 )
 
