@@ -41,7 +41,7 @@ func respondWithOK(w http.ResponseWriter, data interface{}) {
 		},
 	}
 
-	_ := json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Created 201
@@ -58,7 +58,7 @@ func respondWithCreated(w http.ResponseWriter, data interface{}) {
 		},
 	}
 
-	_ := json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Bad Request 400
@@ -75,7 +75,7 @@ func respondWithBadRequest(w http.ResponseWriter, data interface{}) {
 		},
 	}
 
-	_ := json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Not Found 404
@@ -94,7 +94,7 @@ func respondWithNotFound(w http.ResponseWriter) {
 		},
 	}
 
-	_ := json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Unprocessable Entity 422
@@ -113,5 +113,5 @@ func respondWithUnprocessableEntity(w http.ResponseWriter) {
 		},
 	}
 
-	_ := json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w).Encode(response)
 }
