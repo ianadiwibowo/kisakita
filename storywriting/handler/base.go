@@ -5,6 +5,15 @@ import (
 	"net/http"
 )
 
+// StoriesHandler ...
+type StoriesHandler struct {
+}
+
+// NewStoriesHandler initializes fresh handler
+func NewStoriesHandler() *StoriesHandler {
+	return &StoriesHandler{}
+}
+
 // SuccessResponse is the standard success data-meta response
 type SuccessResponse struct {
 	Data interface{} `json:"data"`

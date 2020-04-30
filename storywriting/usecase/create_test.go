@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/suite"
-	"gitlab.com/ianadiwibowo/kisakita-stories/domain/storywriting/mocks"
-	"gitlab.com/ianadiwibowo/kisakita-stories/domain/storywriting/usecase"
 	"gitlab.com/ianadiwibowo/kisakita-stories/entity"
+	"gitlab.com/ianadiwibowo/kisakita-stories/storywriting/mocks"
+	"gitlab.com/ianadiwibowo/kisakita-stories/storywriting/usecase"
 )
 
 type StoryUsecaseTestSuite struct {

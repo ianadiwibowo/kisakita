@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/subosito/gotenv"
 
-	"gitlab.com/ianadiwibowo/kisakita-stories/domain/storywriting/delivery/handler"
+	"gitlab.com/ianadiwibowo/kisakita-stories/storywriting/handler"
 )
 
 // App is the collection of required dependencies
@@ -51,6 +51,7 @@ func (app *App) SetupRouter() {
 	))
 
 	storywritingHandler := handler.NewStoriesHandler()
+	storywritingHandler.
 
 	app.Router.Methods("GET").Path("/stories/{id}").HandlerFunc(
 		storywritingHandler.GetByID,
