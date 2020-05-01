@@ -1,0 +1,22 @@
+default: &default
+  encoding: utf8mb4
+  adapter: mysql2
+  collation: utf8mb4_unicode_ci
+
+development:
+  <<: *default
+  host:     <%= ENV['DATABASE_HOST'] %>
+  port:     <%= ENV['DATABASE_PORT'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD']%>
+  pool:     <%= ENV['DATABASE_POOL'] %>
+
+production:
+  <<: *default
+  host:     <%= ENV['DATABASE_HOST'] %>
+  port:     <%= ENV['DATABASE_PORT'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD']%>
+  pool:     <%= ENV['DATABASE_POOL'] %>

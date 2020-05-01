@@ -1,0 +1,8 @@
+AllCops:
+  TargetRubyVersion: 2.7.1
+  Exclude:
+    - 'db/schema.rb'
+Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
