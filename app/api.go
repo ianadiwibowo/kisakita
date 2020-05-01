@@ -20,7 +20,7 @@ func main() {
 	loadEnvironmentVariables()
 
 	app := NewApp()
-	app.SetupRouter()
+	app.SetupRoutes()
 
 	_ = http.ListenAndServe(":8080", app.Router)
 }
@@ -42,8 +42,8 @@ func NewApp() *App {
 	}
 }
 
-// SetupRouter initializes the API endpoint routes
-func (app *App) SetupRouter() {
+// SetupRoutes initializes the API endpoint routes
+func (app *App) SetupRoutes() {
 	// Authenticate using basic auth, for now
 	app.Router.Use(httpauth.SimpleBasicAuth(
 		os.Getenv("BASIC_USERNAME"),
