@@ -60,3 +60,7 @@ cd domain/storywriting
 mockery -name=StoryRepository
 # => Generating mock for: StoryRepository in file: mocks/StoryRepository.go
 ```
+
+## 3. Attribution
+
+- Project icon is made by <a href="https://www.flaticon.com/free-icon/dragon_1775587" title="Skyclick">Skyclick</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
