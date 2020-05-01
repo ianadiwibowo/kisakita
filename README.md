@@ -11,6 +11,10 @@ Kisakita is an app for story writing collaboration. You write story together wit
 
 > "Kisakita" is a wordplay in Bahasa Indonesia, roughly translated to "our story".
 
+## 1. General Information Flow
+
+![General Information Flow](doc/general_information_flow.png "General Information Flow")
+
 ## 1. Setup
 
 ### 1.1 Prerequisites
