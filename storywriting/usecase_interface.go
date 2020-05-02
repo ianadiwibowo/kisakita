@@ -1,6 +1,6 @@
 package storywriting
 
-import "gitlab.com/ianadiwibowo/kisakita-stories/entity"
+import "gitlab.com/ianadiwibowo/kisakita/entity"
 
 type StoryUsecase interface {
 	GetByID(storyID int) (story *entity.Story, err error)
