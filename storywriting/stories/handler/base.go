@@ -7,15 +7,20 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
+	"gitlab.com/ianadiwibowo/kisakita/storywriting"
+	"gitlab.com/ianadiwibowo/kisakita/storywriting/stories/usecase"
 )
 
 // StoriesHandler is the controller for stories scope
 type StoriesHandler struct {
+	StoryUsecase storywriting.StoryUsecase
 }
 
 // NewStoriesHandler initializes fresh handler
 func NewStoriesHandler() *StoriesHandler {
-	return &StoriesHandler{}
+	return &StoriesHandler{
+		StoryUsecase: usecase.NewStoryUsecase(),
+	}
 }
 
 // getQueryString extracts request payload from HTTP request
