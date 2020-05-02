@@ -8,6 +8,7 @@ Kisakita is an app for story writing collaboration. You write story together wit
 * Uncle Bob's Clean Code and Clean Architecture
 * SOLID principles
 * Gang of Four design patterns
+* [JSON API](https://jsonapi.org/) schema
 
 > "Kisakita" is a wordplay in Bahasa Indonesia, roughly translated to "our story".
 
