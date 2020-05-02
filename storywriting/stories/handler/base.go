@@ -3,6 +3,10 @@ package handler
 import (
 	"encoding/json"
 	"net/http"
+	"reflect"
+
+	"github.com/go-playground/validator/v10"
+	"github.com/gorilla/mux"
 )
 
 // StoriesHandler is the controller for stories scope
@@ -14,113 +18,118 @@ func NewStoriesHandler() *StoriesHandler {
 	return &StoriesHandler{}
 }
 
-// SuccessResponse is the standard success data-meta response
+// getQueryString extracts request payload from HTTP request
+func getQueryString(r *http.Request) map[string]string {
+	return mux.Vars(r)
+}
+
+// getParams extracts HTTP POST request payload to a struct
+func getParams(r *http.Request, p interface{}) {
+	_ = json.NewDecoder(r.Body).Decode(p)
+}
+
+// validateParams checks params compliance to validation rules
+func validateParams(p interface{}) (errors []error) {
+	err := validator.New().Struct(p)
+	if err == nil {
+		return nil
+	}
+
+	if _, ok := err.(*validator.InvalidValidationError); ok {
+		errors = append(errors, &InvalidValidationError{})
+		return errors
+	}
+
+	for _, err := range err.(validator.ValidationErrors) {
+		errors = append(errors, &InvalidAttributeError{
+			Field:        err.Field(),
+			ValidatorTag: err.Tag(),
+		})
+	}
+	return errors
+}
+
+// SuccessResponse is the standard JSON API success data-meta response
 type SuccessResponse struct {
 	Data interface{} `json:"data"`
-	Meta Meta        `json:"meta"`
+	Meta interface{} `json:"meta"`
 }
 
-// FailedResponse is the standard failed errors-meta response
-type FailedResponse struct {
-	Error interface{} `json:"error"`
-	Meta  Meta        `json:"meta"`
+// ErrorResponse is the standard JSON API failed errors-meta response
+type ErrorResponse struct {
+	Errors []ErrorDetail `json:"errors"`
+	Meta   interface{}   `json:"meta"`
 }
 
-// Message ...
-type Message struct {
-	Message string `json:"message"`
+// ErrorDetail represents individual JSON API error detail
+type ErrorDetail struct {
+	Title  string `json:"title"`
+	Detail string `json:"detail"`
 }
 
-// Meta is used to explain Data
-type Meta struct {
-	HTTPStatus int `json:"http_status"`
-}
-
-// OK 200
-func respondWithOK(w http.ResponseWriter, data interface{}) {
+// respondOK sends success response with HTTP status 200
+func respondOK(w http.ResponseWriter, data, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-
-	httpStatus := http.StatusOK
-	w.WriteHeader(httpStatus)
-
+	w.WriteHeader(http.StatusOK)
 	response := SuccessResponse{
 		Data: data,
-		Meta: Meta{
-			HTTPStatus: httpStatus,
-		},
+		Meta: meta,
 	}
-
 	_ = json.NewEncoder(w).Encode(response)
 }
 
-// Created 201
-func respondWithCreated(w http.ResponseWriter, data interface{}) {
+// respondCreated sends success response with HTTP status 201
+func respondCreated(w http.ResponseWriter, data, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-
-	httpStatus := http.StatusCreated
-	w.WriteHeader(httpStatus)
-
+	w.WriteHeader(http.StatusCreated)
 	response := SuccessResponse{
 		Data: data,
-		Meta: Meta{
-			HTTPStatus: httpStatus,
-		},
+		Meta: meta,
 	}
-
 	_ = json.NewEncoder(w).Encode(response)
 }
 
-// Bad Request 400
-func respondWithBadRequest(w http.ResponseWriter, data interface{}) {
+// TODO: So many duplicate codes with these error responses
+// respondBadRequest sends error response with HTTP status 400
+func respondBadRequest(w http.ResponseWriter, errors []error, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-
-	httpStatus := http.StatusBadRequest
-	w.WriteHeader(httpStatus)
-
-	response := FailedResponse{
-		Error: data,
-		Meta: Meta{
-			HTTPStatus: httpStatus,
-		},
+	w.WriteHeader(http.StatusBadRequest)
+	response := ErrorResponse{
+		Errors: convertToErrorDetails(errors),
+		Meta:   meta,
 	}
-
 	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Not Found 404
-func respondWithNotFound(w http.ResponseWriter) {
+func respondWithNotFound(w http.ResponseWriter, errors []error, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-
-	httpStatus := http.StatusNotFound
-	w.WriteHeader(httpStatus)
-
-	response := FailedResponse{
-		Error: Message{
-			Message: "Not found",
-		},
-		Meta: Meta{
-			HTTPStatus: httpStatus,
-		},
+	w.WriteHeader(http.StatusNotFound)
+	response := ErrorResponse{
+		Errors: convertToErrorDetails(errors),
+		Meta:   meta,
 	}
-
 	_ = json.NewEncoder(w).Encode(response)
 }
 
 // Unprocessable Entity 422
-func respondWithUnprocessableEntity(w http.ResponseWriter) {
+func respondWithUnprocessableEntity(w http.ResponseWriter, errors []error, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
-
-	httpStatus := http.StatusUnprocessableEntity
-	w.WriteHeader(httpStatus)
-
-	response := FailedResponse{
-		Error: Message{
-			Message: "Unprocessable entity",
-		},
-		Meta: Meta{
-			HTTPStatus: httpStatus,
-		},
+	w.WriteHeader(http.StatusUnprocessableEntity)
+	response := ErrorResponse{
+		Errors: convertToErrorDetails(errors),
+		Meta:   meta,
 	}
-
 	_ = json.NewEncoder(w).Encode(response)
+}
+
+// convertToErrorDetails converts standard error to serialized error object
+func convertToErrorDetails(errors []error) (errorObjects []ErrorDetail) {
+	for _, err := range errors {
+		errorObjects = append(errorObjects, ErrorDetail{
+			Title:  reflect.TypeOf(err).Elem().Name(),
+			Detail: err.Error(),
+		})
+	}
+	return errorObjects
 }
