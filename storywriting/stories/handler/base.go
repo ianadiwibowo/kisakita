@@ -8,18 +8,21 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
 	"gitlab.com/ianadiwibowo/kisakita/storywriting"
+	"gitlab.com/ianadiwibowo/kisakita/storywriting/stories/repository"
 	"gitlab.com/ianadiwibowo/kisakita/storywriting/stories/usecase"
 )
 
 // StoriesHandler is the controller for stories scope
 type StoriesHandler struct {
-	StoryUsecase storywriting.StoryUsecase
+	StoryUsecase    storywriting.StoryUsecase
+	StoryRepository storywriting.StoryRepository
 }
 
 // NewStoriesHandler initializes fresh handler
 func NewStoriesHandler() *StoriesHandler {
 	return &StoriesHandler{
-		StoryUsecase: usecase.NewStoryUsecase(),
+		StoryUsecase:    usecase.NewStoryUsecase(),
+		StoryRepository: repository.NewStoryRepository(),
 	}
 }
 
@@ -107,7 +110,7 @@ func respondBadRequest(w http.ResponseWriter, errors []error, meta interface{}) 
 }
 
 // Not Found 404
-func respondWithNotFound(w http.ResponseWriter, errors []error, meta interface{}) {
+func respondNotFound(w http.ResponseWriter, errors []error, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusNotFound)
 	response := ErrorResponse{
@@ -118,7 +121,7 @@ func respondWithNotFound(w http.ResponseWriter, errors []error, meta interface{}
 }
 
 // Unprocessable Entity 422
-func respondWithUnprocessableEntity(w http.ResponseWriter, errors []error, meta interface{}) {
+func respondUnprocessableEntity(w http.ResponseWriter, errors []error, meta interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusUnprocessableEntity)
 	response := ErrorResponse{
