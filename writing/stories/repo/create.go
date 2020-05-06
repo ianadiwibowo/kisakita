@@ -1,4 +1,4 @@
-package repository
+package repo
 
 import (
 	"time"
@@ -7,7 +7,7 @@ import (
 )
 
 // Create saves the newStory
-func (r *StoryRepository) Create(newStory *entity.Story) error {
+func (r *StoryRepo) Create(newStory *entity.Story) error {
 	createTimestamp(newStory)
 
 	err := r.db.Create(newStory).Error

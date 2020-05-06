@@ -1,11 +1,11 @@
-package repository
+package repo
 
 import (
 	"gitlab.com/ianadiwibowo/kisakita/entity"
 )
 
 // Update edits the updatedStory
-func (r *StoryRepository) Update(
+func (r *StoryRepo) Update(
 	updatedStory *entity.Story,
 ) (err error) {
 	// Retrieve first

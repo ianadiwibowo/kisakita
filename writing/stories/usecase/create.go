@@ -6,7 +6,7 @@ import (
 
 // Create saves the newStory
 func (u *StoryUsecase) Create(newStory *entity.Story) (err error) {
-	err = u.StoryRepository.Create(newStory)
+	err = u.StoryRepo.Create(newStory)
 	if err != nil {
 		return err
 	}

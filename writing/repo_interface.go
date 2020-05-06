@@ -2,7 +2,7 @@ package writing
 
 import "gitlab.com/ianadiwibowo/kisakita/entity"
 
-type StoryRepository interface {
+type StoryRepo interface {
 	GetByID(storyID int) (story *entity.Story, err error)
 	Create(newStory *entity.Story) (err error)
 	Update(existingStory *entity.Story) (err error)

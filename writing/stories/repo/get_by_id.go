@@ -1,11 +1,11 @@
-package repository
+package repo
 
 import (
 	"gitlab.com/ianadiwibowo/kisakita/entity"
 )
 
 // GetByID retrieves a single story by the storyID
-func (r *StoryRepository) GetByID(storyID int) (
+func (r *StoryRepo) GetByID(storyID int) (
 	*entity.Story,
 	error,
 ) {

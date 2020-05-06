@@ -12,12 +12,12 @@ import (
 
 type StoryUsecaseTestSuite struct {
 	suite.Suite
-	repo    *mocks.StoryRepository
+	repo    *mocks.StoryRepo
 	usecase *usecase.StoryUsecase
 }
 
 func (s *StoryUsecaseTestSuite) SetupTest() {
-	s.repo = new(mocks.StoryRepository)
+	s.repo = new(mocks.StoryRepo)
 	s.usecase = usecase.NewStoryUsecase(s.repo)
 }
 

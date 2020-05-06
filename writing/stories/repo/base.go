@@ -1,4 +1,4 @@
-package repository
+package repo
 
 import (
 	"fmt"
@@ -10,13 +10,13 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type StoryRepository struct {
+type StoryRepo struct {
 	db *gorm.DB
 }
 
-// NewStoryRepository initializes a new StoryRepository instance
-func NewStoryRepository() *StoryRepository {
-	return &StoryRepository{
+// NewStoryRepo initializes a new StoryRepo instance
+func NewStoryRepo() *StoryRepo {
+	return &StoryRepo{
 		db: getDB(),
 	}
 }
