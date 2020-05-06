@@ -84,14 +84,10 @@ func respondOK(w http.ResponseWriter, data, meta interface{}) {
 }
 
 // respondCreated sends success response with HTTP status 201
-func respondCreated(w http.ResponseWriter, data, meta interface{}) {
+func respondCreated(w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	response := SuccessResponse{
-		Data: data,
-		Meta: meta,
-	}
-	_ = json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w)
 }
 
 // TODO: So many duplicate codes with these error responses
@@ -107,14 +103,10 @@ func respondBadRequest(w http.ResponseWriter, errors []error, meta interface{}) 
 }
 
 // Not Found 404
-func respondNotFound(w http.ResponseWriter, errors []error, meta interface{}) {
+func respondNotFound(w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusNotFound)
-	response := ErrorResponse{
-		Errors: convertToErrorDetails(errors),
-		Meta:   meta,
-	}
-	_ = json.NewEncoder(w).Encode(response)
+	_ = json.NewEncoder(w)
 }
 
 // Unprocessable Entity 422
