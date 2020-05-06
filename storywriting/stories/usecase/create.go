@@ -5,11 +5,10 @@ import (
 )
 
 // Create saves the newStory
-func (u *StoryUsecase) Create(newStory *entity.Story) error {
-	err := u.StoryRepository.Create(newStory)
+func (u *StoryUsecase) Create(newStory *entity.Story) (err error) {
+	err = u.StoryRepository.Create(newStory)
 	if err != nil {
 		return err
 	}
-
 	return nil
 }

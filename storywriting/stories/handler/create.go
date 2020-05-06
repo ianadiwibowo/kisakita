@@ -29,8 +29,7 @@ func (h *StoriesHandler) Create(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Send success response
-	respondOK(w, nil, nil)
+	respondCreated(w)
 }
 
 type createParams struct {
