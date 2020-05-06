@@ -98,12 +98,16 @@ make clean
 
 ## 2. Contributing
 
-### 2.x Using Mockery
+### 2.1 Using Mockery
 
 ```bash
-cd domain/storywriting
-mockery -name=StoryRepository
-# => Generating mock for: StoryRepository in file: mocks/StoryRepository.go
+cd writing
+
+# => Generating mock for: StoryUsecase in file: mocks/StoryUsecase.go
+mockery -name=StoryUsecase
+
+# => Generating mock for: StoryRepo in file: mocks/StoryRepo.go
+mockery -name=StoryRepo
 ```
 
 ## 3. Attribution
