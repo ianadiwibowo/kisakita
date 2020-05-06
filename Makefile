@@ -4,7 +4,7 @@ dep:
 	bundle install
 
 build:
-	go build -o bin/kisakita_stories_api app/api.go
+	go build -o bin/kisakita_api app/api.go
 
 test:
 	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "app|bin|db|doc|entity")
