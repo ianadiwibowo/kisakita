@@ -4,6 +4,7 @@ import "time"
 
 // Story is a collection of paragraphs
 type Story struct {
+	ID         int
 	Title      string
 	Synopsis   string
 	Paragraphs []Paragraph
