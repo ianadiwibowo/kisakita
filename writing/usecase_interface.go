@@ -3,7 +3,7 @@ package writing
 import "gitlab.com/ianadiwibowo/kisakita/entity"
 
 type StoryUsecase interface {
-	GetByID(storyID int) (story *entity.Story, err error)
+	Get(storyID int) (story *entity.Story, err error)
 	Create(newStory *entity.Story) (err error)
 	Update(existingStory *entity.Story) (err error)
 	Delete(existingStory *entity.Story) (err error)

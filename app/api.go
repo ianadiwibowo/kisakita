@@ -28,7 +28,7 @@ func (app *App) SetupRoutes() {
 	app.useBasicAuth()
 
 	h := handler.NewStoriesHandler()
-	app.route("GET", "/stories/{id}", h.GetByID)
+	app.route("GET", "/stories/{id}", h.Get)
 	app.route("POST", "/stories", h.Create)
 	app.route("PATCH", "/stories/{id}", h.Update)
 	app.route("DELETE", "/stories/{id}", h.Delete)

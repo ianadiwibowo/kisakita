@@ -4,8 +4,8 @@ import (
 	"gitlab.com/ianadiwibowo/kisakita/entity"
 )
 
-// GetByID retrieves a single story by the storyID
-func (r *StoryRepo) GetByID(storyID int) (
+// Get retrieves a single story by the storyID
+func (r *StoryRepo) Get(storyID int) (
 	*entity.Story,
 	error,
 ) {

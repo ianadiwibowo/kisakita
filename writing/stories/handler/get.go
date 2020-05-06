@@ -8,7 +8,7 @@ import (
 )
 
 // Show handles `GET /stories/{id}`
-func (h *StoriesHandler) GetByID(w http.ResponseWriter, r *http.Request) {
+func (h *StoriesHandler) Get(w http.ResponseWriter, r *http.Request) {
 	// Validate request payload
 	params := mux.Vars(r)
 
@@ -19,7 +19,7 @@ func (h *StoriesHandler) GetByID(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Process according to business rules
-	story, err := h.StoryUsecase.GetByID(id)
+	story, err := h.StoryUsecase.Get(id)
 	if err != nil {
 		respondUnprocessableEntity(w, []error{err}, nil)
 		return

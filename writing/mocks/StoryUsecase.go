@@ -86,8 +86,8 @@ func (_m *StoryUsecase) GetByAuthorID(writerID int) ([]*entity.Story, error) {
 	return r0, r1
 }
 
-// GetByID provides a mock function with given fields: storyID
-func (_m *StoryUsecase) GetByID(storyID int) (*entity.Story, error) {
+// Get provides a mock function with given fields: storyID
+func (_m *StoryUsecase) Get(storyID int) (*entity.Story, error) {
 	ret := _m.Called(storyID)
 
 	var r0 *entity.Story
