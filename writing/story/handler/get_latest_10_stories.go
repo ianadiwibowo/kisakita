@@ -4,5 +4,5 @@ import (
 	"net/http"
 )
 
-// Get10LatestStory handles `GET /stories/ten-latests`
-func (h *StoryHandler) Get10LatestStory(w http.ResponseWriter, r *http.Request) {}
+// Get10LatestStories handles `GET /stories/ten-latests`
+func (h *StoryHandler) Get10LatestStories(w http.ResponseWriter, r *http.Request) {}
