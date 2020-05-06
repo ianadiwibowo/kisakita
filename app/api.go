@@ -8,7 +8,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/subosito/gotenv"
 
-	"gitlab.com/ianadiwibowo/kisakita/writing/stories/handler"
+	"gitlab.com/ianadiwibowo/kisakita/writing/story/handler"
 )
 
 // App is the collection of required dependencies
@@ -27,7 +27,7 @@ func NewApp() *App {
 func (app *App) SetupRoutes() {
 	app.useBasicAuth()
 
-	h := handler.NewStoriesHandler()
+	h := handler.NewStoryHandler()
 	app.route("GET", "/stories/{id}", h.Get)
 	app.route("POST", "/stories", h.Create)
 	app.route("PATCH", "/stories/{id}", h.Update)

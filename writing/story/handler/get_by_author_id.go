@@ -5,4 +5,4 @@ import (
 )
 
 // GetByAuthorID handles `GET /stories/by-authors/{id}`
-func (h *StoriesHandler) GetByAuthorID(w http.ResponseWriter, r *http.Request) {}
+func (h *StoryHandler) GetByAuthorID(w http.ResponseWriter, r *http.Request) {}

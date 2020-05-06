@@ -5,4 +5,4 @@ import (
 )
 
 // Update handles `PATCH /stories/{id}`
-func (h *StoriesHandler) Update(w http.ResponseWriter, r *http.Request) {}
+func (h *StoryHandler) Update(w http.ResponseWriter, r *http.Request) {}

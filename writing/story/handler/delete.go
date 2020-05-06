@@ -5,4 +5,4 @@ import (
 )
 
 // Delete handles `DELETE /stories/{id}`
-func (h *StoriesHandler) Delete(w http.ResponseWriter, r *http.Request) {}
+func (h *StoryHandler) Delete(w http.ResponseWriter, r *http.Request) {}

@@ -8,7 +8,7 @@ import (
 )
 
 // Show handles `GET /stories/{id}`
-func (h *StoriesHandler) Get(w http.ResponseWriter, r *http.Request) {
+func (h *StoryHandler) Get(w http.ResponseWriter, r *http.Request) {
 	// Validate request payload
 	params := mux.Vars(r)
 
