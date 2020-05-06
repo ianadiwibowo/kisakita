@@ -6,10 +6,10 @@ autonumber
 
 actor client as c
 boundary "app/api" as a
-control "delivery/handler" as h
-control "delivery/serializer" as s
+control "handler" as h
+control "serializer" as s
 control "usecase" as u
-database "repository" as r
+database "repo" as r
 
 c -> a: Call API endpoint
 a -> h: Route and forward\nrequest payload
