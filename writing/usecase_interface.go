@@ -1,8 +1,8 @@
-package storywriting
+package writing
 
 import "gitlab.com/ianadiwibowo/kisakita/entity"
 
-type StoryRepository interface {
+type StoryUsecase interface {
 	GetByID(storyID int) (story *entity.Story, err error)
 	Create(newStory *entity.Story) (err error)
 	Update(existingStory *entity.Story) (err error)
