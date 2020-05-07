@@ -4,10 +4,10 @@ dep:
 	bundle install
 
 build:
-	go build -o bin/kisakita_api app/api.go
+	go build -o bin/kisakita cmd/main.go
 
 test:
-	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "app|bin|db|doc|entity")
+	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "cmd|bin|db|doc|entity")
 
 cov:
 	go tool cover -func coverage.out
@@ -25,7 +25,7 @@ dbmigrate:
 	rake db:migrate
 
 run:
-	go run app/api.go
+	go run cmd/main.go
 
 clean:
 	rm -rf bin
