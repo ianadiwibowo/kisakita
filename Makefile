@@ -7,7 +7,7 @@ build:
 	go build -o bin/kisakita cmd/main.go
 
 test:
-	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "cmd|bin|db|doc|entity")
+	go test -cover -coverprofile=coverage.out $$(go list ./... | grep -Ev "cmd|bin|db|doc|entity|mocks")
 
 cov:
 	go tool cover -func coverage.out
