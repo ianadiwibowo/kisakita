@@ -5,9 +5,7 @@ import (
 )
 
 // Update edits the updatedStory
-func (r *StoryRepo) Update(
-	updatedStory *entity.Story,
-) (err error) {
+func (r *StoryRepo) Update(updatedStory *entity.Story) error {
 	// Retrieve first
 	var story entity.Story
 	err = r.db.First(&story, updatedStory.ID).Error

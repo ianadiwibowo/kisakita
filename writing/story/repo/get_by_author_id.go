@@ -5,6 +5,6 @@ import (
 )
 
 // GetByAuthorID retrieves all stories that the writerID involved
-func (r *StoryRepo) GetByAuthorID(writerID int) (stories []*entity.Story, err error) {
+func (r *StoryRepo) GetByAuthorID(writerID int) ([]*entity.Story, error) {
 	return nil, nil
 }
