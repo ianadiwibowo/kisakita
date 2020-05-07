@@ -5,10 +5,7 @@ import (
 )
 
 // Get retrieves a single story by the storyID
-func (r *StoryRepo) Get(storyID int) (
-	*entity.Story,
-	error,
-) {
+func (r *StoryRepo) Get(storyID int) (*entity.Story, error) {
 	story := entity.Story{}
 	err := r.db.First(&story, storyID).Error
 	if err != nil {
