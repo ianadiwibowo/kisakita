@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"net/http"
@@ -6,12 +6,9 @@ import (
 
 	"github.com/goji/httpauth"
 	"github.com/gorilla/mux"
-	"github.com/subosito/gotenv"
-
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/handler"
 )
 
-// App is the collection of required dependencies
+// App is the collection of all hard dependencies
 type App struct {
 	Router *mux.Router
 }
@@ -27,7 +24,9 @@ func NewApp() *App {
 func (app *App) SetupRoutes() {
 	app.useBasicAuth()
 
-	h := handler.NewStoryHandler()
+	c := NewContainer()
+	h := c.GetStoryHandler()
+
 	app.route("GET", "/stories/{id}", h.Get)
 	app.route("POST", "/stories", h.Create)
 	app.route("PATCH", "/stories/{id}", h.Update)
@@ -51,23 +50,4 @@ func (app *App) route(
 	handler func(http.ResponseWriter, *http.Request),
 ) {
 	app.Router.Methods(method).Path(path).HandlerFunc(handler)
-}
-
-func main() {
-	loadEnvironmentVariables()
-
-	app := NewApp()
-	app.SetupRoutes()
-
-	_ = http.ListenAndServe(":8080", app.Router)
-}
-
-// Load system configurations, get them via: os.Getenv("{ENV_KEY_NAME}")
-func loadEnvironmentVariables() {
-	if os.Getenv("APP_ENV") != "production" {
-		err := gotenv.Load()
-		if err != nil {
-			panic(err)
-		}
-	}
 }
