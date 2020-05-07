@@ -16,19 +16,19 @@ type StoryHandler interface {
 }
 
 type StoryUsecase interface {
-	Get(storyID int) (story *entity.Story, err error)
-	Create(newStory *entity.Story) (err error)
-	Update(existingStory *entity.Story) (err error)
-	Delete(existingStory *entity.Story) (err error)
-	GetByAuthorID(writerID int) (stories []*entity.Story, err error)
-	Get10LatestStories() (stories []*entity.Story, err error)
+	Get(storyID int) (*entity.Story, error)
+	Create(newStory *entity.Story) error
+	Update(existingStory *entity.Story) error
+	Delete(existingStory *entity.Story) error
+	GetByAuthorID(writerID int) ([]*entity.Story, error)
+	Get10LatestStories() ([]*entity.Story, error)
 }
 
 type StoryRepo interface {
-	Get(storyID int) (story *entity.Story, err error)
-	Create(newStory *entity.Story) (err error)
-	Update(existingStory *entity.Story) (err error)
-	Delete(existingStory *entity.Story) (err error)
-	GetByAuthorID(writerID int) (stories []*entity.Story, err error)
-	Get10LatestStories() (stories []*entity.Story, err error)
+	Get(storyID int) (*entity.Story, error)
+	Create(newStory *entity.Story) error
+	Update(existingStory *entity.Story) error
+	Delete(existingStory *entity.Story) error
+	GetByAuthorID(writerID int) ([]*entity.Story, error)
+	Get10LatestStories() ([]*entity.Story, error)
 }
