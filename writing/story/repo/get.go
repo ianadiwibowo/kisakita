@@ -1,6 +1,7 @@
 package repo
 
 import (
+	"github.com/jinzhu/gorm"
 	"gitlab.com/ianadiwibowo/kisakita/entity"
 )
 
@@ -8,6 +9,9 @@ import (
 func (r *StoryRepo) Get(storyID int) (*entity.Story, error) {
 	story := entity.Story{}
 	err := r.db.First(&story, storyID).Error
+	if gorm.IsRecordNotFoundError(err) {
+		return nil, &RecordNotFoundError{Entity: story, ID: storyID}
+	}
 	if err != nil {
 		return nil, err
 	}
