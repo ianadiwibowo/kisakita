@@ -35,7 +35,7 @@ func (s *StoryUsecaseTestSuite) TestCreate() {
 	s.repo.AssertCalled(s.T(), "Create", newStory)
 }
 
-func (s *StoryUsecaseTestSuite) TestCreate_ButErrorHappened() {
+func (s *StoryUsecaseTestSuite) TestCreate_WhenErrorHappened() {
 	newStory := &entity.Story{}
 	s.repo.On("Create", newStory).Return(errors.New("Some error"))
 
@@ -43,24 +43,4 @@ func (s *StoryUsecaseTestSuite) TestCreate_ButErrorHappened() {
 
 	s.NotNil(err)
 	s.repo.AssertCalled(s.T(), "Create", newStory)
-}
-
-func (s *StoryUsecaseTestSuite) TestUpdate() {
-	newStory := &entity.Story{}
-	s.repo.On("Update", newStory).Return(nil)
-
-	err := s.usecase.Update(newStory)
-
-	s.Nil(err)
-	s.repo.AssertCalled(s.T(), "Update", newStory)
-}
-
-func (s *StoryUsecaseTestSuite) TestUpdate_ButErrorHappened() {
-	newStory := &entity.Story{}
-	s.repo.On("Update", newStory).Return(errors.New("Some error"))
-
-	err := s.usecase.Update(newStory)
-
-	s.NotNil(err)
-	s.repo.AssertCalled(s.T(), "Update", newStory)
 }
