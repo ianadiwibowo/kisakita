@@ -40,6 +40,29 @@ func (_m *StoryUsecase) Delete(existingStory *entity.Story) error {
 	return r0
 }
 
+// Get provides a mock function with given fields: storyID
+func (_m *StoryUsecase) Get(storyID int) (*entity.Story, error) {
+	ret := _m.Called(storyID)
+
+	var r0 *entity.Story
+	if rf, ok := ret.Get(0).(func(int) *entity.Story); ok {
+		r0 = rf(storyID)
+	} else {
+		if ret.Get(0) != nil {
+			r0 = ret.Get(0).(*entity.Story)
+		}
+	}
+
+	var r1 error
+	if rf, ok := ret.Get(1).(func(int) error); ok {
+		r1 = rf(storyID)
+	} else {
+		r1 = ret.Error(1)
+	}
+
+	return r0, r1
+}
+
 // Get10LatestStories provides a mock function with given fields:
 func (_m *StoryUsecase) Get10LatestStories() ([]*entity.Story, error) {
 	ret := _m.Called()
@@ -79,29 +102,6 @@ func (_m *StoryUsecase) GetByAuthorID(writerID int) ([]*entity.Story, error) {
 	var r1 error
 	if rf, ok := ret.Get(1).(func(int) error); ok {
 		r1 = rf(writerID)
-	} else {
-		r1 = ret.Error(1)
-	}
-
-	return r0, r1
-}
-
-// Get provides a mock function with given fields: storyID
-func (_m *StoryUsecase) Get(storyID int) (*entity.Story, error) {
-	ret := _m.Called(storyID)
-
-	var r0 *entity.Story
-	if rf, ok := ret.Get(0).(func(int) *entity.Story); ok {
-		r0 = rf(storyID)
-	} else {
-		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(*entity.Story)
-		}
-	}
-
-	var r1 error
-	if rf, ok := ret.Get(1).(func(int) error); ok {
-		r1 = rf(storyID)
 	} else {
 		r1 = ret.Error(1)
 	}
