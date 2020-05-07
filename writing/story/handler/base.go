@@ -8,7 +8,6 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
 	"gitlab.com/ianadiwibowo/kisakita/writing"
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/usecase"
 )
 
 // StoryHandler is the controller for story scope
@@ -17,9 +16,9 @@ type StoryHandler struct {
 }
 
 // NewStoryHandler initializes fresh handler
-func NewStoryHandler() *StoryHandler {
+func NewStoryHandler(storyUsecase writing.StoryUsecase) *StoryHandler {
 	return &StoryHandler{
-		StoryUsecase: usecase.NewStoryUsecase(),
+		StoryUsecase: storyUsecase,
 	}
 }
 

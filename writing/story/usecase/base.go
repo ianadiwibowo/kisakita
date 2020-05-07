@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"gitlab.com/ianadiwibowo/kisakita/writing"
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/repo"
 )
 
 type StoryUsecase struct {
@@ -10,8 +9,8 @@ type StoryUsecase struct {
 }
 
 // NewStoryUsecase initializes a new StoryUsecase instance
-func NewStoryUsecase() *StoryUsecase {
+func NewStoryUsecase(storyRepo writing.StoryRepo) *StoryUsecase {
 	return &StoryUsecase{
-		StoryRepo: repo.NewStoryRepo(),
+		StoryRepo: storyRepo,
 	}
 }
