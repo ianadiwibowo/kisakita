@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 // Create saves the newStory

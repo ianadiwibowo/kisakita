@@ -7,7 +7,7 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/gorilla/mux"
-	"gitlab.com/ianadiwibowo/kisakita/writing"
+	"github.com/ianadiwibowo/kisakita/writing"
 )
 
 // StoryHandler is the controller for story scope

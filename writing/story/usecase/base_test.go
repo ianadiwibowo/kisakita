@@ -3,9 +3,9 @@ package usecase_test
 import (
 	"testing"
 
+	"github.com/ianadiwibowo/kisakita/writing/mocks"
+	"github.com/ianadiwibowo/kisakita/writing/story/usecase"
 	"github.com/stretchr/testify/suite"
-	"gitlab.com/ianadiwibowo/kisakita/writing/mocks"
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/usecase"
 )
 
 type StoryUsecaseTestSuite struct {

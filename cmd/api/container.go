@@ -1,9 +1,9 @@
 package api
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/handler"
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/repo"
-	"gitlab.com/ianadiwibowo/kisakita/writing/story/usecase"
+	"github.com/ianadiwibowo/kisakita/writing/story/handler"
+	"github.com/ianadiwibowo/kisakita/writing/story/repo"
+	"github.com/ianadiwibowo/kisakita/writing/story/usecase"
 )
 
 // Container is the singleton collection of all internal dependencies

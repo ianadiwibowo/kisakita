@@ -3,7 +3,7 @@ package usecase_test
 import (
 	"errors"
 
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 func (s *StoryUsecaseTestSuite) TestCreate() {

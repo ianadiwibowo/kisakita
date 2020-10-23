@@ -1,8 +1,8 @@
 package repo
 
 import (
+	"github.com/ianadiwibowo/kisakita/entity"
 	"github.com/jinzhu/gorm"
-	"gitlab.com/ianadiwibowo/kisakita/entity"
 )
 
 // Get retrieves a single story by the storyID

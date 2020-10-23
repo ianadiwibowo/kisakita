@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 // Delete removes the existingStory

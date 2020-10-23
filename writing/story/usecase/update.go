@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 // Update edits the existingStory

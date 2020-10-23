@@ -3,7 +3,7 @@ package writing
 import (
 	"net/http"
 
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 type StoryHandler interface {

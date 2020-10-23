@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 // GetByAuthorID retrieves all stories that the writerID involved

@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"gitlab.com/ianadiwibowo/kisakita/entity"
+	"github.com/ianadiwibowo/kisakita/entity"
 )
 
 // Create handles `POST /stories`

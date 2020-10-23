@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/ianadiwibowo/kisakita/cmd/api"
 	"github.com/subosito/gotenv"
-	"gitlab.com/ianadiwibowo/kisakita/cmd/api"
 )
 
 func main() {
