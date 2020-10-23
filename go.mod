@@ -1,6 +1,6 @@
-module gitlab.com/ianadiwibowo/kisakita
+module github.com/ianadiwibowo/kisakita
 
-go 1.14
+go 1.15
 
 require (
 	github.com/go-playground/validator/v10 v10.2.0
